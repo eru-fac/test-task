@@ -1,0 +1,65 @@
+@host = http://localhost:5000
+
+### Get meetings
+GET {{host}}/api/meetings
+
+### Get meetings with search
+GET {{host}}/api/meetings?search=project&page=1&pageSize=10
+
+### Get meeting by id
+GET {{host}}/api/meetings/1
+
+### Create meeting
+POST {{host}}/api/meetings
+Content-Type: application/json
+
+{
+  "title": "New planning meeting",
+  "description": "Simple test meeting",
+  "startTime": "2026-08-12T10:00:00",
+  "endTime": "2026-08-12T11:00:00",
+  "roomId": 1,
+  "participantIds": [1, 2]
+}
+
+### Update meeting
+PUT {{host}}/api/meetings/1
+Content-Type: application/json
+
+{
+  "title": "Updated planning meeting",
+  "description": "Updated meeting description",
+  "startTime": "2026-08-12T12:00:00",
+  "endTime": "2026-08-12T13:00:00",
+  "roomId": 2,
+  "participantIds": [1, 3]
+}
+
+### Meetings by participant
+GET {{host}}/api/meetings/by-participant/1
+
+### Get participants
+GET {{host}}/api/participants
+
+### Create participant
+POST {{host}}/api/participants
+Content-Type: application/json
+
+{
+  "name": "Test User",
+  "email": "test@example.com",
+  "position": "Developer"
+}
+
+### Get rooms
+GET {{host}}/api/rooms
+
+### Create room
+POST {{host}}/api/rooms
+Content-Type: application/json
+
+{
+  "name": "Room 202",
+  "location": "Second floor",
+  "capacity": 12
+}
